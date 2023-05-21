@@ -1,6 +1,7 @@
 import "./index.scss";
 import logo from "../../content/logo.png";
 import Button from "./Button";
+import { batman } from "./assets";
 
 const Sidebar = () => {
   return (
@@ -19,7 +20,7 @@ const Sidebar = () => {
       <div className="biblioteca">
         <h3>Sua Biblioteca</h3>
         <div className="scroll">
-          <Button name="Batman" icon="batman" />
+          <Button name="Batman" icon={batman} />
         </div>
       </div>
     </div>
