@@ -1,0 +1,23 @@
+@import "../../../";
+
+.button {
+  @include box;
+  padding: $gap / 2;
+  display: flex;
+  gap: $gap / 2;
+  align-items: center;
+  background-color: $primary;
+
+  img {
+    width: 45px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  p {
+    font-size: 1.05em;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}

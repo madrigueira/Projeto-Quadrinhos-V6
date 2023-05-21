@@ -1,0 +1,21 @@
+@import "./";
+
+.main {
+  display: flex;
+  background-color: $bg;
+  min-height: 100vh;
+  padding: $gap;
+  gap: $gap;
+
+  $sidebar-width: calc(20% - $gap);
+  .sidebar {
+    width: $sidebar-width;
+    min-width: 245px;
+  }
+
+  .content {
+    width: calc(100% - $sidebar-width);
+    background-color: $secondary;
+    border-radius: 15px;
+  }
+}
