@@ -5,6 +5,8 @@
   align-items: center;
   padding: calc($gap / 2);
   border-radius: $gap;
+  cursor: pointer;
+  transition: 0.2s;
 
   &.active {
     background-color: $color-1;

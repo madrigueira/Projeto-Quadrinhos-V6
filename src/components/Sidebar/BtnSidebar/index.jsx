@@ -2,15 +2,15 @@ import { useEffect, useRef } from "react";
 import "./index.scss";
 
 const BtnSidebar = ({ className }) => {
-  const btnRef = useRef(null);
+  const btnSidebar = useRef(null);
 
   useEffect(() => {
-    if (className === "active" && btnRef.current) {
-      btnRef.current.classList.add("active");
+    if (className === "active") {
+      btnSidebar.current.classList.add("active");
     }
-  }, [className]);
+  }, []);
   return (
-    <div className="btnSidebar" ref={btnRef}>
+    <div className="btnSidebar" ref={btnSidebar}>
       <img src="https://qph.cf2.quoracdn.net/main-qimg-0d29e0d15c7dd741fda33694b550f07e-pjlq" />
       <p>Mulher-maravilha</p>
     </div>

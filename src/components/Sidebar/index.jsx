@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 import "./index.scss";
 import logo from "../../content/logo.png";
 import BtnSidebar from "./BtnSidebar";
 
 const Sidebar = () => {
+  useEffect(() => {
+    const btns = document.querySelectorAll(".btnSidebar");
+
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btns.forEach((element) => {
+          element.classList.remove("active");
+        });
+        btn.classList.add("active");
+      });
+    });
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="top">

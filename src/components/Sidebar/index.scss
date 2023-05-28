@@ -35,6 +35,7 @@
     width: 100%;
     height: calc(100vh - 100px - $gap * 3);
     padding: calc($gap / 2);
+    padding-right: 0;
     background-color: $bg-2;
     border-radius: $gap;
 
