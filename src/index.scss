@@ -22,6 +22,22 @@ $gap: 15px;
 @mixin scrollBar() {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: $gap;
+  }
+
+  &:hover {
+    scrollbar-color: lighten($bg-2, 5) transparent;
+    &::-webkit-scrollbar-thumb {
+      background: lighten($bg-2, 5);
+    }
+  }
 }
 
 // MAIN
