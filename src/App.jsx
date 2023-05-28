@@ -1,11 +1,11 @@
 import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
+import Character from "./pages/Character";
 
 const App = () => {
   return (
     <div className="app">
       <Sidebar />
-      <Home />
+      <Character />
     </div>
   );
 };

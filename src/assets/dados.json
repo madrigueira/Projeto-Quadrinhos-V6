@@ -1,0 +1,18 @@
+{
+  "editoras": [
+    {
+      "nome": "DC",
+      "personagens": [
+        {
+          "nome": "Superman",
+          "hqs": [
+            {
+              "nome": "A morte do Superman",
+              "links": ["link 1 da hq", "link 2 da hq", "link 3 da hq"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
