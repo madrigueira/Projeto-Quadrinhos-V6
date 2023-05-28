@@ -1,20 +1,27 @@
-// FONTS
+// FONTES
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Rowdies:wght@300;400;700&display=swap");
 
-//COLORS
+// CORES
 $text: #fff;
-$bg: #0e0e0e;
-$primary: #be6a2a;
-$secondary: #1f1f1f;
+$bg-1: #0e0e0e;
+$bg-2: #1f1f1f;
+$color-1: #be6a2a;
 
-// VARIABLES
+// VARIAVIES
 $gap: 15px;
 
 // MIXINS
-@mixin box() {
-  background-color: $secondary;
-  border-radius: 15px;
-  padding: 15px;
+@mixin page() {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - $gap * 2);
+  background-color: $bg-2;
+  border-radius: $gap;
+}
+
+@mixin scrollBar() {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
 // MAIN
@@ -24,4 +31,12 @@ $gap: 15px;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
   color: $text;
+}
+
+.app {
+  display: flex;
+  gap: $gap;
+  height: 100vh;
+  padding: $gap;
+  background-color: $bg-1;
 }

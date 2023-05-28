@@ -1,26 +1,30 @@
 import "./index.scss";
 import logo from "../../content/logo.png";
-import Button from "./Button";
-import { batman } from "./assets";
+import BtnSidebar from "./BtnSidebar";
 
 const Sidebar = () => {
   return (
-    <div className="main-sidebar">
+    <div className="sidebar">
       <div className="top">
-        <div className="logo">
-          <img src={logo} alt="Projeto Quadrinhos" />
-        </div>
-        <div className="editora">
-          <img
-            src="https://www.pngall.com/wp-content/uploads/11/DC-Comics-Logo-PNG-File.png"
-            alt="DC Comics"
-          />
-        </div>
+        <img src={logo} className="logo" alt="Projeto Quadrinhos" />
+        <img
+          src="https://www.pngall.com/wp-content/uploads/11/DC-Comics-Logo-PNG-File.png"
+          className="editora"
+          alt="Dc Comics"
+        />
       </div>
       <div className="biblioteca">
-        <h3>Sua Biblioteca</h3>
+        <h3>Sua biblioteca</h3>
         <div className="scroll">
-          <Button name="Batman" icon={batman} />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
+          <BtnSidebar />
         </div>
       </div>
     </div>

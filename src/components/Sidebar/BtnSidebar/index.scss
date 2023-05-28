@@ -1,22 +1,25 @@
 @import "../../../";
 
-.button {
-  @include box;
-  padding: $gap / 2;
+.btnSidebar {
   display: flex;
-  gap: $gap / 2;
   align-items: center;
-  background-color: $primary;
+  padding: calc($gap / 2);
+  border-radius: $gap;
+
+  &.active {
+    background-color: $color-1;
+  }
 
   img {
     width: 45px;
     aspect-ratio: 1/1;
     object-fit: cover;
-    border-radius: 15px;
+    margin-right: calc($gap / 2);
+    border-radius: $gap;
   }
 
   p {
-    font-size: 1.05em;
+    font-size: 1em;
     font-weight: 300;
     text-transform: uppercase;
   }
