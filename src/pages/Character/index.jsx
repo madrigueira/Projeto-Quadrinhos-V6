@@ -1,9 +1,9 @@
 import "./index.scss";
 
-const Character = () => {
+const Character = ({ slug }) => {
   return (
     <div className="character">
-      <h1>KKK</h1>
+      <h1>{slug}</h1>
     </div>
   );
 };

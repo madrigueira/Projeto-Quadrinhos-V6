@@ -1,33 +1,13 @@
 import "./index.scss";
-import { useState, useEffect } from "react";
-import { request } from "graphql-request";
+import { useState } from "react";
 import logo from "../../content/logo.png";
 import BtnSidebar from "./BtnSidebar";
 
-const Sidebar = () => {
-  const [comics, setComics] = useState(null);
+const Sidebar = ({ comics }) => {
   const [activeBtnSidebar, setActiveBtnSidebar] = useState(null);
 
-  useEffect(() => {
-    const fetchComics = async () => {
-      const { comics } = await request(
-        "https://api-sa-east-1.hygraph.com/v2/clit3y4d90ci201tf42ph6j7y/master",
-        `
-        {
-          comics{
-            id
-            title
-            icon
-          }
-        }`
-      );
-      setComics(comics);
-    };
-    fetchComics();
-  }, []);
-
-  const handleBtnClick = (id) => {
-    setActiveBtnSidebar(id);
+  const handleBtnClick = (slug) => {
+    setActiveBtnSidebar(slug);
   };
 
   return (
@@ -44,13 +24,14 @@ const Sidebar = () => {
         <h3>Sua biblioteca</h3>
         <div className="scroll">
           {comics &&
-            comics.map(({ id, title, icon }) => (
+            comics.map(({ title, slug, icon }) => (
               <BtnSidebar
-                key={id}
+                key={slug}
                 title={title}
+                slug={slug}
                 icon={icon}
-                active={id === activeBtnSidebar}
-                onClick={() => handleBtnClick(id)}
+                active={slug === activeBtnSidebar}
+                onClick={() => handleBtnClick(slug)}
               />
             ))}
         </div>
