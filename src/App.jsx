@@ -19,6 +19,10 @@ const App = () => {
             slug
             icon
             banner
+            series{
+              title
+              cover
+            }
           }
         }`
       );

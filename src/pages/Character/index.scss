@@ -2,14 +2,31 @@
 
 .character {
   @include page;
+  flex-direction: column;
   overflow-y: auto;
   @include scrollBar-None;
 
-  .banner {
-    width: 100%;
-    height: 55vh;
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
+  .content {
+    .banner {
+      width: 100%;
+      height: 60vh;
+      margin-bottom: -25vh;
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: calc($gap * 2);
+      padding: calc($gap * 2);
+
+      div {
+        width: 100%;
+        aspect-ratio: 1/1.5;
+        background-color: brown;
+      }
+    }
   }
 }
