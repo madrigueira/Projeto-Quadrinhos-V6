@@ -40,6 +40,14 @@ $gap: 15px;
   }
 }
 
+@mixin scrollBar-None() {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+  }
+}
+
 // MAIN
 * {
   margin: 0;

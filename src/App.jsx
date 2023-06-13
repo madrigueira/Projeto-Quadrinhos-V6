@@ -18,6 +18,7 @@ const App = () => {
             title
             slug
             icon
+            banner
           }
         }`
       );
@@ -32,11 +33,11 @@ const App = () => {
       <Routes>
         <Route path="/" Component={Home}></Route>
         {comics &&
-          comics.map(({ slug }) => (
+          comics.map((comics) => (
             <Route
-              key={slug}
-              path={slug}
-              element={<Character slug={slug} />}
+              key={comics.slug}
+              path={comics.slug}
+              element={<Character slug={comics.slug} comics={comics} />}
             ></Route>
           ))}
       </Routes>

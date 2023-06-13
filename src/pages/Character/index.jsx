@@ -1,9 +1,15 @@
 import "./index.scss";
 
-const Character = ({ slug }) => {
+const Character = ({ comics }) => {
+  const bg = {
+    backgroundImage:
+      "linear-gradient(transparent 0%, #1f1f1f 0%), url('" +
+      comics.banner +
+      "')",
+  };
   return (
     <div className="character">
-      <h1>{slug}</h1>
+      <div className="banner" style={bg}></div>
     </div>
   );
 };
