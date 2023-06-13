@@ -1,21 +1,34 @@
-import { useEffect } from "react";
 import "./index.scss";
+import { useState, useEffect } from "react";
+import { request } from "graphql-request";
 import logo from "../../content/logo.png";
 import BtnSidebar from "./BtnSidebar";
 
 const Sidebar = () => {
-  useEffect(() => {
-    const btns = document.querySelectorAll(".btnSidebar");
+  const [comics, setComics] = useState(null);
+  const [activeBtnSidebar, setActiveBtnSidebar] = useState(null);
 
-    btns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        btns.forEach((element) => {
-          element.classList.remove("active");
-        });
-        btn.classList.add("active");
-      });
-    });
+  useEffect(() => {
+    const fetchComics = async () => {
+      const { comics } = await request(
+        "https://api-sa-east-1.hygraph.com/v2/clit3y4d90ci201tf42ph6j7y/master",
+        `
+        {
+          comics{
+            id
+            title
+            icon
+          }
+        }`
+      );
+      setComics(comics);
+    };
+    fetchComics();
   }, []);
+
+  const handleBtnClick = (id) => {
+    setActiveBtnSidebar(id);
+  };
 
   return (
     <div className="sidebar">
@@ -30,15 +43,16 @@ const Sidebar = () => {
       <div className="biblioteca">
         <h3>Sua biblioteca</h3>
         <div className="scroll">
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
-          <BtnSidebar />
+          {comics &&
+            comics.map(({ id, title, icon }) => (
+              <BtnSidebar
+                key={id}
+                title={title}
+                icon={icon}
+                active={id === activeBtnSidebar}
+                onClick={() => handleBtnClick(id)}
+              />
+            ))}
         </div>
       </div>
     </div>
