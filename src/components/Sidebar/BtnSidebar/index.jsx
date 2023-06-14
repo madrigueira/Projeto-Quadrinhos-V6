@@ -2,7 +2,7 @@ import "./index.scss";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const BtnSidebar = ({ title, slug, icon, active, onClick }) => {
+const BtnSidebar = ({ title, slug, active, onClick }) => {
   useEffect(() => {
     const path = window.location.pathname;
     const pathName = path.startsWith("/") ? path.slice(1) : path;
@@ -19,7 +19,15 @@ const BtnSidebar = ({ title, slug, icon, active, onClick }) => {
       name={slug}
       onClick={onClick}
     >
-      <img src={icon} />
+      <img
+        src={
+          "https://raw.githubusercontent.com/madrigueira/Projeto-Quadrinhos-V6/main/src/content/Dc/" +
+          slug +
+          "/sidenav-" +
+          slug +
+          ".png"
+        }
+      />
       <p>{title}</p>
     </Link>
   );

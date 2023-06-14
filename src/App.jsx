@@ -17,11 +17,9 @@ const App = () => {
           comics{
             title
             slug
-            icon
-            banner
             series{
               title
-              cover
+              slug
             }
           }
         }`

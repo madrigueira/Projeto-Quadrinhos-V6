@@ -24,12 +24,11 @@ const Sidebar = ({ comics }) => {
         <h3>Sua biblioteca</h3>
         <div className="scroll">
           {comics &&
-            comics.map(({ title, slug, icon }) => (
+            comics.map(({ title, slug }) => (
               <BtnSidebar
                 key={slug}
                 title={title}
                 slug={slug}
-                icon={icon}
                 active={slug === activeBtnSidebar}
                 onClick={() => handleBtnClick(slug)}
               />
