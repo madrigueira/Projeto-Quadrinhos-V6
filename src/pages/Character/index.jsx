@@ -17,7 +17,7 @@ const Character = ({ comics }) => {
         <div className="grid">
           {comics &&
             comics.series.map(({ slug, title }) => (
-              <Link>
+              <Link key={slug}>
                 <img
                   src={
                     "https://raw.githubusercontent.com/madrigueira/Projeto-Quadrinhos-V6/main/src/content/Dc/" +

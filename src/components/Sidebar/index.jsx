@@ -7,6 +7,10 @@ const Sidebar = ({ comics }) => {
   const [activeBtnSidebar, setActiveBtnSidebar] = useState(null);
 
   const handleBtnClick = (slug) => {
+    const btns = document.querySelectorAll(".btnSidebar");
+    btns.forEach((btn) => {
+      btn.classList.remove("active");
+    });
     setActiveBtnSidebar(slug);
   };
 
