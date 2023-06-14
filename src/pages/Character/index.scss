@@ -22,10 +22,44 @@
       gap: calc($gap * 2);
       padding: calc($gap * 2);
 
-      div {
+      a {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         aspect-ratio: 1/1.5;
-        background-color: brown;
+        overflow: hidden;
+        background-color: $bg-1;
+        border-radius: $gap;
+
+        &:hover {
+          img {
+            opacity: 0.4;
+          }
+        }
+
+        img {
+          width: 100%;
+          transition: 0.2s;
+        }
+
+        p {
+          margin-top: calc($gap * -3.1);
+          background-color: $bg-1;
+          line-height: calc($gap * 3);
+          opacity: 1;
+          transition: 0.3s;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .character {
+    .content {
+      .grid {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }
