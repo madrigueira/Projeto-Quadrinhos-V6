@@ -27,7 +27,9 @@ const Character = ({ comics }) => {
                     ".jpg"
                   }
                 />
-                <p>{title}</p>
+                <div className="box">
+                  <h5>{title}</h5>
+                </div>
               </Link>
             ))}
         </div>
