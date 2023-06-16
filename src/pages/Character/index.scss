@@ -18,6 +18,7 @@
 
     .grid {
       display: grid;
+      // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       gap: calc($gap * 2);
       padding: calc($gap * 2);
@@ -68,16 +69,6 @@
           font-size: 1.15em;
           font-weight: 300;
         }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .character {
-    .content {
-      .grid {
-        grid-template-columns: 1fr 1fr 1fr;
       }
     }
   }
