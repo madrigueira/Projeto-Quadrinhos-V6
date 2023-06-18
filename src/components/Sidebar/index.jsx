@@ -8,8 +8,12 @@ const Sidebar = ({ comics }) => {
 
   const handleBtnClick = (slug) => {
     const btns = document.querySelectorAll(".btnSidebar");
+    const path = window.location.pathname;
+    const pathName = path.startsWith("/") ? path.slice(1) : path;
     btns.forEach((btn) => {
-      btn.classList.remove("active");
+      if (slug != pathName) {
+        btn.classList.remove("active");
+      }
     });
     setActiveBtnSidebar(slug);
   };

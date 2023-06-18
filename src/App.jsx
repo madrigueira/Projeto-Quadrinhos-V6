@@ -12,8 +12,7 @@ const App = () => {
     const fetchComics = async () => {
       const { comics } = await request(
         "https://api-sa-east-1.hygraph.com/v2/clit3y4d90ci201tf42ph6j7y/master",
-        `
-        {
+        `{
           comics{
             title
             slug
