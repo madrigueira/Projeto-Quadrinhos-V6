@@ -1,0 +1,8 @@
+@import "../../";
+
+.serie {
+  @include page;
+  flex-direction: column;
+  overflow-y: auto;
+  @include scrollBar-None;
+}

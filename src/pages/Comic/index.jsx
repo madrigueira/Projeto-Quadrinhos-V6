@@ -1,31 +1,28 @@
 import "./index.scss";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Character = ({ comics }) => {
+const Comic = ({ comics }) => {
   const bg = {
     backgroundImage:
-      "linear-gradient(transparent 0%, #1f1f1f 100%), url('https://raw.githubusercontent.com/madrigueira/Projeto-Quadrinhos-V6/main/src/content/Dc/" +
+      "linear-gradient(transparent 0%, #1f1f1f 100%), url('https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
       comics.slug +
-      "/banner-" +
-      comics.slug +
-      ".png')",
+      "/banner.png')",
   };
   return (
-    <div className="character">
+    <div className="comic">
       <div className="content">
         <div className="banner" style={bg}></div>
         <div className="grid">
           {comics &&
             comics.series.map(({ slug, title }) => (
-              <Link key={slug}>
+              <Link key={slug} to={slug}>
                 <img
                   src={
-                    "https://raw.githubusercontent.com/madrigueira/Projeto-Quadrinhos-V6/main/src/content/Dc/" +
+                    "https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
                     comics.slug +
-                    "/comics/" +
+                    "/" +
                     slug +
-                    ".jpg"
+                    "/cover.jpg"
                   }
                 />
                 <div className="box">
@@ -39,4 +36,4 @@ const Character = ({ comics }) => {
   );
 };
 
-export default Character;
+export default Comic;

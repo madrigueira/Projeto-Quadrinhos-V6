@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { request } from "graphql-request";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
-import Character from "./pages/Character";
+import Comic from "./pages/Comic";
+import Serie from "./pages/Serie";
 
 const App = () => {
   const [comics, setComics] = useState(null);
@@ -38,9 +39,18 @@ const App = () => {
             <Route
               key={comics.slug}
               path={comics.slug}
-              element={<Character slug={comics.slug} comics={comics} />}
+              element={<Comic slug={comics.slug} comics={comics} />}
             ></Route>
           ))}
+        {comics &&
+          comics.map((comics) =>
+            comics.series.map((series) => (
+              <Route
+                path={comics.slug + "/" + series.slug}
+                element={<Serie />}
+              ></Route>
+            ))
+          )}
       </Routes>
     </Router>
   );

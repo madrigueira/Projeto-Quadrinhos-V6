@@ -23,11 +23,9 @@ const BtnSidebar = ({ title, slug, active, onClick }) => {
     >
       <img
         src={
-          "https://raw.githubusercontent.com/madrigueira/Projeto-Quadrinhos-V6/main/src/content/Dc/" +
+          "https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
           slug +
-          "/sidenav-" +
-          slug +
-          ".png"
+          "/icon.png"
         }
       />
       <p>{title}</p>
