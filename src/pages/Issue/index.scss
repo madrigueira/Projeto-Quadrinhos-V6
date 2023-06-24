@@ -1,0 +1,36 @@
+@import "../../";
+
+.issue {
+  @include page;
+
+  .scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+    padding: calc($gap * 2);
+    padding-right: 0;
+    @include scrollBar;
+
+    img {
+      width: 100%;
+    }
+
+    .controls {
+      position: fixed;
+      bottom: calc($gap * 2);
+      width: 350px;
+      height: 75px;
+      background-color: $bg-1;
+      border-radius: $gap;
+    }
+  }
+
+  .timeline {
+    width: 75px;
+    margin: calc($gap * 2);
+    background-color: $bg-1;
+    border-radius: $gap;
+  }
+}

@@ -1,29 +1,41 @@
 import "./index.scss";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Serie = () => {
-  const getNumberOfFolders = async (owner, repo) => {
+const Serie = ({ comics, series }) => {
+  const [folders, setFolders] = useState([]);
+
+  const getFolders = async (owner, repo) => {
     try {
       const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/contents/mulher-maravilha`
+        `https://api.github.com/repos/${owner}/${repo}/contents/` +
+          comics.slug +
+          `/` +
+          series.slug
       );
       const data = await response.json();
 
-      const numberOfFolders = data.filter((item) => item.type === "dir").length;
-      return numberOfFolders;
+      const filteredFolders = data.filter((item) => item.type === "dir");
+      setFolders(filteredFolders);
     } catch (error) {
-      console.error("Erro ao obter o número de pastas:", error);
+      console.error("Erro ao obter as pastas:", error);
     }
   };
 
-  // Exemplo de uso:
-
-  getNumberOfFolders("madrigueira", "pq-content").then((numberOfFolders) => {
-    console.log("Número de pastas:", numberOfFolders);
-  });
+  useEffect(() => {
+    getFolders("madrigueira", "pq-content");
+  }, []);
 
   return (
     <div className="serie">
-      <h1></h1>
+      <h1>{series.title}</h1>
+      <div className="grid">
+        {folders.map((folder) => (
+          <Link key={folder.name} to={folder.name + "/page-1"}>
+            {folder.name}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

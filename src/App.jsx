@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Comic from "./pages/Comic";
 import Serie from "./pages/Serie";
+import Issue from "./pages/Issue";
 
 const App = () => {
   const [comics, setComics] = useState(null);
@@ -47,7 +48,16 @@ const App = () => {
             comics.series.map((series) => (
               <Route
                 path={comics.slug + "/" + series.slug}
-                element={<Serie />}
+                element={<Serie comics={comics} series={series} />}
+              ></Route>
+            ))
+          )}
+        {comics &&
+          comics.map((comics) =>
+            comics.series.map((series) => (
+              <Route
+                path={comics.slug + "/" + series.slug + "/:numero/:numero"}
+                element={<Issue comics={comics} series={series} />}
               ></Route>
             ))
           )}

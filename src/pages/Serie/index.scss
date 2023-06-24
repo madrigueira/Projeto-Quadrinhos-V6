@@ -3,6 +3,40 @@
 .serie {
   @include page;
   flex-direction: column;
+  gap: calc($gap * 2);
   overflow-y: auto;
+  padding: $gap calc($gap * 2);
   @include scrollBar-None;
+
+  h1 {
+    font-size: 2.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: calc($gap * 3);
+
+    a {
+      width: 100%;
+      padding: calc($gap / 2);
+      background-color: $bg-1;
+      border-radius: calc($gap/2);
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.5em;
+      font-weight: 400;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: $color-1;
+        transform: scale(1.05);
+      }
+    }
+  }
 }

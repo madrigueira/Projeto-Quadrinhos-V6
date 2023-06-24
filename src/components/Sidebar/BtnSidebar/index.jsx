@@ -6,10 +6,11 @@ const BtnSidebar = ({ title, slug, active, onClick }) => {
   useEffect(() => {
     const path = window.location.pathname;
     const pathName = path.startsWith("/") ? path.slice(1) : path;
+    const firstPathName = pathName.split("/")[0];
     const btns = document.querySelectorAll(".btnSidebar");
     btns.forEach((btn) => {
       const name = btn.getAttribute("name");
-      if (name === pathName) {
+      if (name === firstPathName) {
         btn.classList.add("active");
       }
     });
