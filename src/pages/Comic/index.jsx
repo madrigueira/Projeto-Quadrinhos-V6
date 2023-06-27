@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 const Comic = ({ comics }) => {
   const bg = {
-    backgroundImage:
-      "linear-gradient(transparent 0%, #1f1f1f 100%), url('https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
-      comics.slug +
-      "/banner.png')",
+    backgroundImage: `linear-gradient(transparent 0%, #1f1f1f 100%), url('https://raw.githubusercontent.com/madrigueira/pq-content/main/${comics.slug}/banner.png')`,
   };
   return (
     <div className="comic">
@@ -17,13 +14,7 @@ const Comic = ({ comics }) => {
             comics.series.map(({ slug, title }) => (
               <Link key={slug} to={slug}>
                 <img
-                  src={
-                    "https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
-                    comics.slug +
-                    "/" +
-                    slug +
-                    "/cover.jpg"
-                  }
+                  src={`https://raw.githubusercontent.com/madrigueira/pq-content/main/${comics.slug}/${slug}/cover.jpg`}
                 />
                 <div className="box">
                   <h5>{title}</h5>

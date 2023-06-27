@@ -51,17 +51,7 @@ const Issue = ({ comics, series }) => {
     <div className="issue">
       <div className="scroll">
         <img
-          src={
-            "https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
-            comics.slug +
-            "/" +
-            series.slug +
-            "/" +
-            issuePath +
-            "/" +
-            pagePath +
-            ".png"
-          }
+          src={`https://raw.githubusercontent.com/madrigueira/pq-content/main/${comics.slug}/${series.slug}/${issuePath}/${pagePath}.png`}
         />
         <div className="controls">
           <Link to={`../${prevPage}`}>Voltar</Link>

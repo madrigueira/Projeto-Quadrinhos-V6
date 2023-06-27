@@ -8,10 +8,7 @@ const Serie = ({ comics, series }) => {
   const getFolders = async (owner, repo) => {
     try {
       const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/contents/` +
-          comics.slug +
-          `/` +
-          series.slug
+        `https://api.github.com/repos/${owner}/${repo}/contents/${comics.slug}/${series.slug}`
       );
       const data = await response.json();
 
@@ -31,7 +28,7 @@ const Serie = ({ comics, series }) => {
       <h1>{series.title}</h1>
       <div className="grid">
         {folders.map((folder) => (
-          <Link key={folder.name} to={folder.name + "/page-1"}>
+          <Link key={folder.name} to={`${folder.name}/page-1`}>
             {folder.name}
           </Link>
         ))}

@@ -47,7 +47,7 @@ const App = () => {
           comics.map((comics) =>
             comics.series.map((series) => (
               <Route
-                path={comics.slug + "/" + series.slug}
+                path={`${comics.slug}/${series.slug}`}
                 element={<Serie comics={comics} series={series} />}
               ></Route>
             ))
@@ -56,7 +56,7 @@ const App = () => {
           comics.map((comics) =>
             comics.series.map((series) => (
               <Route
-                path={comics.slug + "/" + series.slug + "/:numero/:numero"}
+                path={`${comics.slug}/${series.slug}/:numero/:numero`}
                 element={<Issue comics={comics} series={series} />}
               ></Route>
             ))
