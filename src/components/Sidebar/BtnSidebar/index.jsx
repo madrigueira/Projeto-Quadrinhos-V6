@@ -17,17 +17,13 @@ const BtnSidebar = ({ title, slug, active, onClick }) => {
   }, []);
   return (
     <Link
-      to={"/" + slug}
+      to={`/${slug}`}
       className={`btnSidebar ${active ? "active" : ""}`}
       name={slug}
       onClick={onClick}
     >
       <img
-        src={
-          "https://raw.githubusercontent.com/madrigueira/pq-content/main/" +
-          slug +
-          "/icon.png"
-        }
+        src={`https://raw.githubusercontent.com/madrigueira/pq-content/main/${slug}/icon.png`}
       />
       <p>{title}</p>
     </Link>

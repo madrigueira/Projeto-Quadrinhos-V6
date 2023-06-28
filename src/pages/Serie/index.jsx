@@ -1,6 +1,6 @@
 import "./index.scss";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Serie = ({ comics, series }) => {
   const [folders, setFolders] = useState([]);
@@ -22,6 +22,9 @@ const Serie = ({ comics, series }) => {
   useEffect(() => {
     getFolders("madrigueira", "pq-content");
   }, []);
+
+  const location = useLocation();
+  const path = location.pathname.slice(-1);
 
   return (
     <div className="serie">

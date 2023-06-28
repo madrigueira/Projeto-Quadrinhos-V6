@@ -27,10 +27,6 @@ const Issue = ({ comics, series }) => {
         const response = await fetch(
           `https://raw.githubusercontent.com/madrigueira/pq-content/main/${comics.slug}/${series.slug}/${issuePath}/${pagePath}.png`
         );
-        // if (!response.ok) {
-        //   throw new Error("Erro ao carregar a imagem");
-        // }
-        // Lógica para atualizar a imagem após recarregar
       } catch (error) {
         console.error(error);
       }
