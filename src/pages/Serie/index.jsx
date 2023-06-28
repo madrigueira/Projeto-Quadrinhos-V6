@@ -5,26 +5,22 @@ import { Link, useLocation } from "react-router-dom";
 const Serie = ({ comics, series }) => {
   const [folders, setFolders] = useState([]);
 
-  const getFolders = async (owner, repo) => {
-    try {
-      const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/contents/${comics.slug}/${series.slug}`
-      );
-      const data = await response.json();
-
-      const filteredFolders = data.filter((item) => item.type === "dir");
-      setFolders(filteredFolders);
-    } catch (error) {
-      console.error("Erro ao obter as pastas:", error);
-    }
-  };
-
   useEffect(() => {
-    getFolders("madrigueira", "pq-content");
-  }, []);
+    const getFolders = async () => {
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/madrigueira/pq-content/contents/${comics.slug}/${series.slug}`
+        );
+        const data = await response.json();
 
-  const location = useLocation();
-  const path = location.pathname.slice(-1);
+        const filteredFolders = data.filter((item) => item.type === "dir");
+        setFolders(filteredFolders);
+      } catch (error) {
+        console.error("Erro ao obter as pastas:", error);
+      }
+    };
+    getFolders();
+  }, []);
 
   return (
     <div className="serie">
